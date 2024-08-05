@@ -14,7 +14,7 @@ export default {
           <router-link
             to="/"
             className="self-center text-2xl font-semibold whitespace-nowrap text-white"
-            ><img src="./online-shop.png" class="h-8" />
+            ><img src="./online-shop.png" class="h-4" />
             <span
               class="self-center text-2xl font-semibold whitespace-nowrap text-white"
             >
