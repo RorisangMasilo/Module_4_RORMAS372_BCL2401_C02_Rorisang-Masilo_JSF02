@@ -22,11 +22,11 @@ const navigateToDetails = () => {
       alt="Product Image"
       class="p-8 rounded-t-lg bg-contain"
     />
-    <h3
+    <h1
       class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
     >
       {{ product.title }}
-    </h3>
+    </h1>
     <div class="flex items-center mt-2.5 mb-5">
       <!-- Render the rating here -->
       <span
@@ -34,10 +34,10 @@ const navigateToDetails = () => {
         >{{ product.rating.rate }}</span
       >
     </div>
-    <p class="text-gray-600 mb-2">{{ product.category }}</p>
-    <p class="text-3xl font-bold text-gray-900 dark:text-white">
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
       ${{ product.price }}
-    </p>
+    </h2>
+    <p class="text-gray-600 mb-2">{{ product.category }}</p>
     <button
       @click="$emit('view-details', product)"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

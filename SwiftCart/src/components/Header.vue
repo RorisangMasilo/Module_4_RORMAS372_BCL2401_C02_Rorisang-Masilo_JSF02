@@ -5,11 +5,22 @@ export default {
 </script>
 
 <template>
-  <header class="bg-gray-800 p-4 text-white">
-    <div class="container mx-auto flex justify-between items-center">
-      <router-link to="/" class="text-xl font-bold">Home</router-link>
-      <router-link to="/cart" class="text-xl font-bold">Cart</router-link>
-    </div>
+  <header className="sticky z-50 top-0">
+    <nav class="bg-gray-500 border-gray-200">
+      <div
+        class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+      >
+        <div class="container mx-auto flex justify-between items-center">
+          <router-link
+            to="/"
+            className="self-center text-2xl font-semibold whitespace-nowrap text-white"
+          >
+            SwiftCart</router-link
+          >
+          <router-link to="/cart" class="text-xl font-bold">Cart</router-link>
+        </div>
+      </div>
+    </nav>
   </header>
 </template>
 

@@ -17,12 +17,22 @@ onMounted(async () => {
 
 <template>
   <div v-if="loading" class="loading">Loading...</div>
-  <div v-else>
-    <img :src="product.image" alt="Product Image" />
-    <h1>{{ product.title }}</h1>
-    <p>{{ product.description }}</p>
-    <p>{{ product.price | currency }}</p>
-    <p>{{ product.category }}</p>
-    <p>{{ product.rating }} ({{ product.reviews }} reviews)</p>
+  <div v-else class="flex justify-center">
+    <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:max-w-6 xl xl:max-w-7x1">
+      <div class="mx-auto w-2/5 flex-none">
+        <img :src="product.image" alt="Product Image" class="w-[90%] h-[90%" />
+      </div>
+      <div class="mx-auto w-[90%] space-y-2">
+        <h1 class="text-2xl md:text-4xl lg:text-4xl font-bold">
+          {{ product.title }}
+        </h1>
+        <p>{{ product.rating }} (Reviews: {{ product.reviews }})</p>
+        <p class="">{{ product.category }}</p>
+        <h3 class="text-xl md:text-2xl lg:text-2xl font-bold">
+          ${{ product.price }}
+        </h3>
+        <h2>{{ product.description }}</h2>
+      </div>
+    </div>
   </div>
 </template>
