@@ -1,14 +1,3 @@
-<template>
-  <div v-if="loading" class="loading">Loading...</div>
-  <div v-else class="grid">
-    <ProductCard
-      v-for="product in products"
-      :key="product.id"
-      :product="product"
-    />
-  </div>
-</template>
-
 <script setup>
 import { ref, onMounted } from "vue";
 import ProductCard from "./ProductCard.vue";
@@ -22,3 +11,14 @@ onMounted(async () => {
   loading.value = false;
 });
 </script>
+
+<template>
+  <div v-if="loading" class="loading">Loading...</div>
+  <div v-else class="grid">
+    <ProductCard
+      v-for="product in products"
+      :key="product.id"
+      :product="product"
+    />
+  </div>
+</template>

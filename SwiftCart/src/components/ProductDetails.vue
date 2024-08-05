@@ -1,15 +1,3 @@
-<template>
-  <div v-if="loading" class="loading">Loading...</div>
-  <div v-else>
-    <img :src="product.image" alt="Product Image" />
-    <h1>{{ product.title }}</h1>
-    <p>{{ product.description }}</p>
-    <p>{{ product.price | currency }}</p>
-    <p>{{ product.category }}</p>
-    <p>{{ product.rating }} ({{ product.reviews }} reviews)</p>
-  </div>
-</template>
-
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
@@ -26,3 +14,15 @@ onMounted(async () => {
   loading.value = false;
 });
 </script>
+
+<template>
+  <div v-if="loading" class="loading">Loading...</div>
+  <div v-else>
+    <img :src="product.image" alt="Product Image" />
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <p>{{ product.price | currency }}</p>
+    <p>{{ product.category }}</p>
+    <p>{{ product.rating }} ({{ product.reviews }} reviews)</p>
+  </div>
+</template>
