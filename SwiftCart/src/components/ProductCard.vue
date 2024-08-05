@@ -34,14 +34,17 @@ const navigateToDetails = () => {
         >{{ product.rating.rate }}</span
       >
     </div>
-    <h2 class="text-3xl font-bold text-gray-900 dark:text-white">
+    <h4 class="text-3xl font-bold text-gray-900 dark:text-white">
       ${{ product.price }}
-    </h2>
+    </h4>
     <p class="text-gray-600 mb-2">{{ product.category }}</p>
     <button
-      @click="$emit('view-details', product)"
+      @click="$emit('add-to-cart', product)"
       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
     >
+      Add to cart
+    </button>
+    <button @click="$emit('view-details', product)" class="">
       View Details
     </button>
   </div>
