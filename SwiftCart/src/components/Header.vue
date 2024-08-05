@@ -14,8 +14,12 @@ export default {
           <router-link
             to="/"
             className="self-center text-2xl font-semibold whitespace-nowrap text-white"
-          >
-            SwiftCart</router-link
+            ><img src="./online-shop.png" class="h-8" />
+            <span
+              class="self-center text-2xl font-semibold whitespace-nowrap text-white"
+            >
+              SwiftCart
+            </span></router-link
           >
           <router-link to="/cart" class="text-xl font-bold">Cart</router-link>
         </div>
