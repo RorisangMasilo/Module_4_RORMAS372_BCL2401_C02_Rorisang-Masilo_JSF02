@@ -21,3 +21,9 @@ To get started with this project, follow these steps:
 2. Project directory - cd SwiftCart
 3. Install the required dependencies using npm install
 4. To run project use npm run dev
+
+### Reflections
+
+#### Areas of Improvement
+
+#### Struggle Points

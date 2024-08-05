@@ -17,7 +17,7 @@ const products = ref([]);
 const loading = ref(true);
 
 onMounted(async () => {
-  const response = await fetch("https://api.example.com/products");
+  const response = await fetch("https://fakestoreapi.com/products");
   products.value = await response.json();
   loading.value = false;
 });

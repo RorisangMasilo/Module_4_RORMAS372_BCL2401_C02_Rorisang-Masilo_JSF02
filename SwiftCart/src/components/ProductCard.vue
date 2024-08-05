@@ -7,6 +7,7 @@
   </div>
 </template>
 
+// Composition API to handle component logic
 <script setup>
 import { useRouter } from "vue-router";
 
