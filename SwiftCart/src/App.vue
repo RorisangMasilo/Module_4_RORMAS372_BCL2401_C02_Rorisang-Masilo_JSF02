@@ -6,7 +6,7 @@ export default {
   name: "App",
   components: {
     Header,
-    // SortFilter,
+    SortFilter,
   },
 };
 </script>
@@ -15,7 +15,7 @@ export default {
   <div id="app">
     <Header />
     <SortFilter />
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 
