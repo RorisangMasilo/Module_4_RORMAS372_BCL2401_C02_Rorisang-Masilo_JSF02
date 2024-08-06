@@ -26,8 +26,13 @@ onMounted(async () => {
         <h1 class="text-2xl md:text-4xl lg:text-4xl font-bold">
           {{ product.title }}
         </h1>
-        <p>{{ product.rating }} (Reviews: {{ product.reviews }})</p>
-        <p class="">{{ product.category }}</p>
+        <p>{{ product.rating }}</p>
+        <p>(Reviews: {{ product.reviews }})</p>
+        <p
+          class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10"
+        >
+          {{ product.category }}
+        </p>
         <h3 class="text-xl md:text-2xl lg:text-2xl font-bold">
           ${{ product.price }}
         </h3>
@@ -35,9 +40,10 @@ onMounted(async () => {
           @click="$emit('add-to-cart', product)"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Add to cart
+          Add to Cart
         </button>
-        <h2>{{ product.description }}</h2>
+        <h2 class="text-lg font-bold">Description</h2>
+        <p>{{ product.description }}</p>
       </div>
     </div>
   </div>
