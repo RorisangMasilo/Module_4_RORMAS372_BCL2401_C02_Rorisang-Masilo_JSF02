@@ -1,6 +1,6 @@
-<!-- <script>
+<script>
 import ProductCard from "./ProductCard.vue";
-import { mapState, mapGetters, mapMutations, mapActions } from "vue";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   components: {
@@ -83,4 +83,4 @@ export default {
       />
     </div>
   </div>
-</template> -->
+</template>
