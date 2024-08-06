@@ -1,9 +1,25 @@
 <script setup>
 import { ref, onMounted } from "vue";
+import { useProductStore } from "../stores/productStore";
 import ProductCard from "./ProductCard.vue";
 
 const products = ref([]);
 const loading = ref(true);
+
+export default {
+  components: { ProductCard },
+  computed: {
+    filteredProducts() {
+      const store = useProductStore();
+      return store.filteredProducts;
+    },
+  },
+  methods: {
+    viewProductDetail(id) {
+      this.$router.push(`/product/${id}`);
+    },
+  },
+};
 
 onMounted(async () => {
   const response = await fetch("https://fakestoreapi.com/products");
