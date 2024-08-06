@@ -1,13 +1,12 @@
 <script>
 import Header from "./components/Header.vue";
 import SortFilter from "./components/SortFilter.vue";
-import SortFilter from "./components/SortFilter.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    SortFilter,
+    // SortFilter,
   },
 };
 </script>
