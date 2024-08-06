@@ -1,10 +1,25 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
+import { useProductStore } from "../stores/productStore";
 
 const product = ref({});
 const loading = ref(true);
 const route = useRoute();
+
+export default {
+  computed: {
+    product() {
+      const store = useProductStore();
+      return store.selectedProduct;
+    },
+  },
+  async created() {
+    const store = useProductStore();
+    const productId = this.$route.params.id;
+    await store.fetchProductById(productId);
+  },
+};
 
 onMounted(async () => {
   const response = await fetch(
@@ -46,5 +61,9 @@ onMounted(async () => {
         <p>{{ product.description }}</p>
       </div>
     </div>
+  </div>
+
+  <div v-else>
+    <p>Loading...</p>
   </div>
 </template>
