@@ -8,6 +8,14 @@ const loading = ref(true);
 const route = useRoute();
 // const store = useProductStore();
 
+onMounted(async () => {
+  const response = await fetch(
+    `https://fakestoreapi.com/products/${route.params.id}`
+  );
+  product.value = await response.json();
+  loading.value = false;
+});
+
 //onMounted(async () => {
 // const productId = route.params.id;
 // await store.fetchProductById(productId);
@@ -28,14 +36,6 @@ const route = useRoute();
 //     await store.fetchProductById(productId);
 //   },
 // };
-
-onMounted(async () => {
-  const response = await fetch(
-    `https://fakestoreapi.com/products/${route.params.id}`
-  );
-  product.value = await response.json();
-  loading.value = false;
-});
 </script>
 
 <template>
