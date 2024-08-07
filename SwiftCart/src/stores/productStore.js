@@ -33,6 +33,12 @@ export const useProductStore = defineStore("productStore", {
         filteredProducts.sort((a, b) => a.price - b.price);
       } else if (state.sortOrder === "highest") {
         filteredProducts.sort((a, b) => b.price - a.price);
+      } else if (state.sortOrder === "name-asc") {
+        filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (state.sortOrder === "name-desc") {
+        filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+      } else if (state.sortOrder === "rating") {
+        filteredProducts.sort((a, b) => b.rating.rate - a.rating.rate);
       }
 
       return filteredProducts;

@@ -1,47 +1,32 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-// import { useProductStore } from "../stores/productStore";
 
 const product = ref({});
 const loading = ref(true);
+const error = ref(null);
 const route = useRoute();
-// const store = useProductStore();
 
 onMounted(async () => {
-  const response = await fetch(
-    `https://fakestoreapi.com/products/${route.params.id}`
-  );
-  product.value = await response.json();
-  loading.value = false;
+  try {
+    const response = await fetch(
+      `https://fakestoreapi.com/products/${route.params.id}`
+    );
+    if (!response.ok) throw new Error("Failed to fetch product data.");
+    product.value = await response.json();
+  } catch (err) {
+    error.value = err.message;
+  } finally {
+    loading.value = false;
+  }
 });
-
-//onMounted(async () => {
-// const productId = route.params.id;
-// await store.fetchProductById(productId);
-// product.value = store.selectedProduct;
-// loading.value = false;
-// //});
-
-// export default {
-//   computed: {
-//     product() {
-//       const store = useProductStore();
-//       return store.selectedProduct;
-//     },
-//   },
-//   async created() {
-//     const store = useProductStore();
-//     const productId = this.$route.params.id;
-//     await store.fetchProductById(productId);
-//   },
-// };
 </script>
 
 <template>
   <div v-if="loading" class="loading">Loading...</div>
+  <div v-else-if="error" class="error">{{ error }}</div>
   <div v-else class="flex justify-center">
-    <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:max-w-6 xl xl:max-w-7x1">
+    <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:max-w-6xl xl:max-w-7xl">
       <div class="mx-auto w-2/5 flex-none">
         <img :src="product.image" alt="Product Image" class="w-[90%] h-[90%]" />
       </div>
@@ -49,8 +34,8 @@ onMounted(async () => {
         <h1 class="text-2xl md:text-4xl lg:text-4xl font-bold">
           {{ product.title }}
         </h1>
-        <p>{{ product.rating }}</p>
-        <p>(Reviews: {{ product.reviews }})</p>
+        <p v-if="product.rating">Rating: {{ product.rating.rate }}</p>
+        <p v-if="product.rating">Reviews: {{ product.rating.count }}</p>
         <p
           class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10"
         >
@@ -69,9 +54,5 @@ onMounted(async () => {
         <p>{{ product.description }}</p>
       </div>
     </div>
-  </div>
-
-  <div v-else>
-    <p>Loading...</p>
   </div>
 </template>
