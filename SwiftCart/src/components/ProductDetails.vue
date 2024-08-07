@@ -29,13 +29,13 @@ onMounted(async () => {
 //   },
 // };
 
-// onMounted(async () => {
-//   const response = await fetch(
-//     `https://fakestoreapi.com/products/${route.params.id}`
-//   );
-//   product.value = await response.json();
-//   loading.value = false;
-// });
+onMounted(async () => {
+  const response = await fetch(
+    `https://fakestoreapi.com/products/${route.params.id}`
+  );
+  product.value = await response.json();
+  loading.value = false;
+});
 </script>
 
 <template>

@@ -1,7 +1,11 @@
 <template>
   <!-- Filtering -->
   <div class="flex sm:w-[95%] max-w-[21rem] md:w-full">
-    <select v-model="selectedCategory" @change="filterProducts">
+    <select
+      v-model="selectedCategory"
+      @change="filterProducts"
+      class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200"
+    >
       <option value="">All Categories</option>
       <option v-for="category in categories" :key="category" :value="category">
         {{ category }}
