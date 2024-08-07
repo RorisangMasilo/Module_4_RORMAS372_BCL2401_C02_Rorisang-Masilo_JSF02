@@ -6,28 +6,36 @@ import { useProductStore } from "../stores/productStore";
 const product = ref({});
 const loading = ref(true);
 const route = useRoute();
-
-export default {
-  computed: {
-    product() {
-      const store = useProductStore();
-      return store.selectedProduct;
-    },
-  },
-  async created() {
-    const store = useProductStore();
-    const productId = this.$route.params.id;
-    await store.fetchProductById(productId);
-  },
-};
+const store = useProductStore();
 
 onMounted(async () => {
-  const response = await fetch(
-    `https://fakestoreapi.com/products/${route.params.id}`
-  );
-  product.value = await response.json();
+  const productId = route.params.id;
+  await store.fetchProductById(productId);
+  product.value = store.selectedProduct;
   loading.value = false;
 });
+
+// export default {
+//   computed: {
+//     product() {
+//       const store = useProductStore();
+//       return store.selectedProduct;
+//     },
+//   },
+//   async created() {
+//     const store = useProductStore();
+//     const productId = this.$route.params.id;
+//     await store.fetchProductById(productId);
+//   },
+// };
+
+// onMounted(async () => {
+//   const response = await fetch(
+//     `https://fakestoreapi.com/products/${route.params.id}`
+//   );
+//   product.value = await response.json();
+//   loading.value = false;
+// });
 </script>
 
 <template>

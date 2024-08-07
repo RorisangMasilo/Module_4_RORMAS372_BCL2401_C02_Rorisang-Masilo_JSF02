@@ -42,7 +42,7 @@ export const useProductStore = defineStore("productStore", {
     async fetchProducts() {
       this.loading = true;
       try {
-        const response = await fetch("/api/products");
+        const response = await fetch("https://fakestoreapi.com/products/");
         const products = await response.json();
         this.products = products;
       } catch (error) {
@@ -53,7 +53,9 @@ export const useProductStore = defineStore("productStore", {
     },
     async fetchCategories() {
       try {
-        const response = await fetch("/api/categories");
+        const response = await fetch(
+          "https://fakestoreapi.com/products/categories"
+        );
         const categories = await response.json();
         this.categories = categories;
       } catch (error) {
