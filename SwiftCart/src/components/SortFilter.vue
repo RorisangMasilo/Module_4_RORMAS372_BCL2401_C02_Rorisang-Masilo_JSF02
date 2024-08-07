@@ -1,7 +1,7 @@
 <template>
   <!-- Filtering -->
-  <div>
-    <div class="flex lg:w-[31.25rem] sm:w-[95%] md:w-full relative">
+  <div class="flex lg:w-[31.25rem] sm:w-[95%] md:w-full relative">
+    <div class="flex sm:w-[95%] max-w-[21rem] md:w-full">
       <select
         v-model="selectedCategory"
         @change="filterProducts"

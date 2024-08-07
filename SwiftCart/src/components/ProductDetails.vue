@@ -1,19 +1,19 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-import { useProductStore } from "../stores/productStore";
+// import { useProductStore } from "../stores/productStore";
 
 const product = ref({});
 const loading = ref(true);
 const route = useRoute();
-const store = useProductStore();
+// const store = useProductStore();
 
-onMounted(async () => {
-  const productId = route.params.id;
-  await store.fetchProductById(productId);
-  product.value = store.selectedProduct;
-  loading.value = false;
-});
+//onMounted(async () => {
+// const productId = route.params.id;
+// await store.fetchProductById(productId);
+// product.value = store.selectedProduct;
+// loading.value = false;
+// //});
 
 // export default {
 //   computed: {
@@ -43,7 +43,7 @@ onMounted(async () => {
   <div v-else class="flex justify-center">
     <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:max-w-6 xl xl:max-w-7x1">
       <div class="mx-auto w-2/5 flex-none">
-        <img :src="product.image" alt="Product Image" class="w-[90%] h-[90%" />
+        <img :src="product.image" alt="Product Image" class="w-[90%] h-[90%]" />
       </div>
       <div class="mx-auto w-[90%] space-y-2">
         <h1 class="text-2xl md:text-4xl lg:text-4xl font-bold">
