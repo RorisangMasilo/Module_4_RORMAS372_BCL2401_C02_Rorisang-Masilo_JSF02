@@ -26,4 +26,9 @@ To get started with this project, follow these steps:
 
 #### Areas of Improvement
 
+- Styling aspects: Styling aspects of the projects, including Tailwind CSS require myself to have an understanding of the complexity of styling with such a tool.
+- Javascript: My Javascript knowledge in the project revealed that I may lack in the knowledge of the technology or language especially in the functionality and interrelated relationship of components
+
 #### Struggle Points
+
+- Functionality capability: Ensure features or components such as the SortFilter.vue, was quite difficult to implement.
