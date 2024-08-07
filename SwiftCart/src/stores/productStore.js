@@ -54,13 +54,18 @@ export const useProductStore = defineStore("productStore", {
     async fetchCategories() {
       try {
         const response = await fetch(
-          "https://fakestoreapi.com/products/categories"
+          "https://fakestoreapi.com/products/categories/"
         );
         const categories = await response.json();
         this.categories = categories;
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
+    },
+
+    async sortProducts(order) {
+      this.sortOrder = order;
+      // The sorting will automatically be applied through the filteredAndSortedProducts getter
     },
   },
 });
